@@ -1,0 +1,35 @@
+{
+  "name": "rolldown-plugin-inline-worker",
+  "version": "0.0.1-alpha.0",
+  "type": "module",
+  "description": "Rolldown plugin that enables Vite-style inline web workers via '?worker&inline' imports",
+  "author": "kikuchan <kikuchan98@gmail.com>",
+  "homepage": "https://github.com/kikuchan/rolldown-plugin-inline-worker#readme",
+  "keywords": [
+    "inline",
+    "worker",
+    "rolldown",
+    "tsdown",
+    "plugin",
+    "web worker",
+    "vite"
+  ],
+  "main": "./dist/index.js",
+  "types": "./types.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "files": [
+    "./dist",
+    "./types.d.ts"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "rolldown": "1.0.0-beta.51"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "typescript": "^5.9.3"
+  },
+  "packageManager": "pnpm@10.23.0+sha512.21c4e5698002ade97e4efe8b8b4a89a8de3c85a37919f957e7a0f30f38fbc5bbdd05980ffe29179b2fb6e6e691242e098d945d1601772cad0fef5fb6411e2a4b"
+}
