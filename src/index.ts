@@ -103,9 +103,13 @@ export default function inlineWorker(): Plugin {
 
       const marker = `__INLINE_WORKER_${markerSeed++}__`;
       workerEntries.set(marker, { cleanId, marker });
-      const urlExpr = JSON.stringify(marker);
 
-      const out = `export default function createWorker(options = {}) { return new Worker(${urlExpr}, options); }`;
+      const out = `
+        export default function createWorker(options = {}) {
+          const u = URL.createObjectURL(new Blob(['URL.revokeObjectURL(self.location.href);', ${marker}], { type: "text/javascript;charset=utf-8" }));
+          return new Worker(u, options);
+        }
+      `;
       return { code: out, map: { mappings: "" } };
     },
 
@@ -118,8 +122,8 @@ export default function inlineWorker(): Plugin {
           cleanId,
           outputOptions,
         );
-        const base64 = Buffer.from(bundled, "utf8").toString("base64");
-        replacements.set(marker, `data:application/javascript;base64,${base64}`);
+
+        replacements.set(marker, JSON.stringify(bundled));
       }
 
       if (replacements.size === 0) return;

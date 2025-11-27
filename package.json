@@ -1,6 +1,6 @@
 {
   "name": "rolldown-plugin-inline-worker",
-  "version": "0.0.1-alpha.0",
+  "version": "0.0.1-alpha.1",
   "type": "module",
   "description": "Rolldown plugin that enables Vite-style inline web workers via '?worker&inline' imports",
   "author": "kikuchan <kikuchan98@gmail.com>",

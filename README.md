@@ -36,4 +36,3 @@ worker.postMessage("ping");
 ## Notes
 
 - The plugin currently supports only inline workers (`?worker&inline`). Using `?worker` without `&inline` throws an error.
-- Worker code is bundled separately and injected as a base64 data URI at build time.
